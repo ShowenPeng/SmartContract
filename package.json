@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "luffy",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -20,5 +20,16 @@
   },
   "dependencies": {
     "dotenv": "^10.0.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShowenPeng/Token.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShowenPeng/Token/issues"
+  },
+  "homepage": "https://github.com/ShowenPeng/Token#readme"
 }
