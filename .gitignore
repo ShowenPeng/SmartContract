@@ -1,11 +1,18 @@
 node_modules
-.env
 coverage
 coverage.json
 typechain
+.vscode
 
 #Hardhat files
 cache
 artifacts
 
-.vscode
+# environment
+.env
+
+.eslintcache
+
+.DS_Store
+
+contracts/artifacts
