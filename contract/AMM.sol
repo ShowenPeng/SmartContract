@@ -45,7 +45,7 @@ contract AMM is ERC20 {
     ///@notice An event emitted when a swap from tokenB to tokenA is performed
     event SwapBToA(address indexed addr, uint256 amountBIn, uint256 amountAOut);
 
-    constructor(address _tokenA, address _tokenB) ERC20("AMM", "AMM") {
+    constructor(address _tokenA, address _tokenB) ERC20("AMM-LP", "AMM-LP") {
         tokenA = _tokenA;
         tokenB = _tokenB;
     }

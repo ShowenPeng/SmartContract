@@ -1,767 +1,767 @@
 {
-  "compiler": {
-    "version": "0.8.9+commit.e5eed63a"
-  },
-  "language": "Solidity",
-  "output": {
-    "abi": [
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_tokenA",
-            "type": "address"
-          },
-          {
-            "internalType": "address",
-            "name": "_tokenB",
-            "type": "address"
-          }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "constructor"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "x",
-            "type": "uint256"
-          }
-        ],
-        "name": "PRBMathUD60x18__FromUintOverflow",
-        "type": "error"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "x",
-            "type": "uint256"
-          }
-        ],
-        "name": "PRBMathUD60x18__SqrtOverflow",
-        "type": "error"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "prod1",
-            "type": "uint256"
-          }
-        ],
-        "name": "PRBMath__MulDivFixedPointOverflow",
-        "type": "error"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "owner",
-            "type": "address"
-          },
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "spender",
-            "type": "address"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "value",
-            "type": "uint256"
-          }
-        ],
-        "name": "Approval",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "addr",
-            "type": "address"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "amountA",
-            "type": "uint256"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "amountB",
-            "type": "uint256"
-          }
-        ],
-        "name": "InitialLiquidityProvided",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "addr",
-            "type": "address"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "lpTokens",
-            "type": "uint256"
-          }
-        ],
-        "name": "LiquidityProvided",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "addr",
-            "type": "address"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "lpTokens",
-            "type": "uint256"
-          }
-        ],
-        "name": "LiquidityRemoved",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "addr",
-            "type": "address"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "amountAIn",
-            "type": "uint256"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "amountBOut",
-            "type": "uint256"
-          }
-        ],
-        "name": "SwapAToB",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "addr",
-            "type": "address"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "amountBIn",
-            "type": "uint256"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "amountAOut",
-            "type": "uint256"
-          }
-        ],
-        "name": "SwapBToA",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "from",
-            "type": "address"
-          },
-          {
-            "indexed": true,
-            "internalType": "address",
-            "name": "to",
-            "type": "address"
-          },
-          {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "value",
-            "type": "uint256"
-          }
-        ],
-        "name": "Transfer",
-        "type": "event"
-      },
-      {
-        "inputs": [],
-        "name": "LP_FEE",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "owner",
-            "type": "address"
-          },
-          {
-            "internalType": "address",
-            "name": "spender",
-            "type": "address"
-          }
-        ],
-        "name": "allowance",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "spender",
-            "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "amount",
-            "type": "uint256"
-          }
-        ],
-        "name": "approve",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "account",
-            "type": "address"
-          }
-        ],
-        "name": "balanceOf",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "decimals",
-        "outputs": [
-          {
-            "internalType": "uint8",
-            "name": "",
-            "type": "uint8"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "spender",
-            "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "subtractedValue",
-            "type": "uint256"
-          }
-        ],
-        "name": "decreaseAllowance",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "spender",
-            "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "addedValue",
-            "type": "uint256"
-          }
-        ],
-        "name": "increaseAllowance",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "name",
-        "outputs": [
-          {
-            "internalType": "string",
-            "name": "",
-            "type": "string"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "amountA",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "amountB",
-            "type": "uint256"
-          }
-        ],
-        "name": "provideInitialLiquidity",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "lpTokenAmount",
-            "type": "uint256"
-          }
-        ],
-        "name": "provideLiquidity",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "lpTokenAmount",
-            "type": "uint256"
-          }
-        ],
-        "name": "removeLiquidity",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "amountAIn",
-            "type": "uint256"
-          }
-        ],
-        "name": "swapFromAToB",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "amountBIn",
-            "type": "uint256"
-          }
-        ],
-        "name": "swapFromBToA",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "symbol",
-        "outputs": [
-          {
-            "internalType": "string",
-            "name": "",
-            "type": "string"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "tokenA",
-        "outputs": [
-          {
-            "internalType": "address",
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "tokenAReserves",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "tokenB",
-        "outputs": [
-          {
-            "internalType": "address",
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "tokenBReserves",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "totalSupply",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "to",
-            "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "amount",
-            "type": "uint256"
-          }
-        ],
-        "name": "transfer",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "from",
-            "type": "address"
-          },
-          {
-            "internalType": "address",
-            "name": "to",
-            "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "amount",
-            "type": "uint256"
-          }
-        ],
-        "name": "transferFrom",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      }
-    ],
-    "devdoc": {
-      "kind": "dev",
-      "methods": {
-        "allowance(address,address)": {
-          "details": "See {IERC20-allowance}."
-        },
-        "approve(address,uint256)": {
-          "details": "See {IERC20-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address."
-        },
-        "balanceOf(address)": {
-          "details": "See {IERC20-balanceOf}."
-        },
-        "decimals()": {
-          "details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
-        },
-        "decreaseAllowance(address,uint256)": {
-          "details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
-        },
-        "increaseAllowance(address,uint256)": {
-          "details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
-        },
-        "name()": {
-          "details": "Returns the name of the token."
-        },
-        "provideLiquidity(uint256)": {
-          "params": {
-            "lpTokenAmount": "number of lp tokens to mint with new liquidity"
-          }
-        },
-        "removeLiquidity(uint256)": {
-          "params": {
-            "lpTokenAmount": "number of lp tokens to burn"
-          }
-        },
-        "symbol()": {
-          "details": "Returns the symbol of the token, usually a shorter version of the name."
-        },
-        "totalSupply()": {
-          "details": "See {IERC20-totalSupply}."
-        },
-        "transfer(address,uint256)": {
-          "details": "See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`."
-        },
-        "transferFrom(address,address,uint256)": {
-          "details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`."
-        }
-      },
-      "version": 1
-    },
-    "userdoc": {
-      "errors": {
-        "PRBMathUD60x18__FromUintOverflow(uint256)": [
-          {
-            "notice": "Emitted when converting a basic integer to the fixed-point format format overflows UD60x18."
-          }
-        ],
-        "PRBMathUD60x18__SqrtOverflow(uint256)": [
-          {
-            "notice": "Emitted when the calculating the square root overflows UD60x18."
-          }
-        ],
-        "PRBMath__MulDivFixedPointOverflow(uint256)": [
-          {
-            "notice": "Emitted when the result overflows uint256."
-          }
-        ]
-      },
-      "events": {
-        "InitialLiquidityProvided(address,uint256,uint256)": {
-          "notice": "An event emitted when initial liquidity is provided"
-        },
-        "LiquidityProvided(address,uint256)": {
-          "notice": "An event emitted when liquidity is provided"
-        },
-        "LiquidityRemoved(address,uint256)": {
-          "notice": "An event emitted when liquidity is removed"
-        },
-        "SwapAToB(address,uint256,uint256)": {
-          "notice": "An event emitted when a swap from tokenA to tokenB is performed"
-        },
-        "SwapBToA(address,uint256,uint256)": {
-          "notice": "An event emitted when a swap from tokenB to tokenA is performed"
-        }
-      },
-      "kind": "user",
-      "methods": {
-        "LP_FEE()": {
-          "notice": "fee for LP providers, 4 decimal places, i.e. 30 = 0.3%"
-        },
-        "provideInitialLiquidity(uint256,uint256)": {
-          "notice": "provide initial liquidity to the amm. This sets the relative price between tokens"
-        },
-        "provideLiquidity(uint256)": {
-          "notice": "provide liquidity to the AMM"
-        },
-        "removeLiquidity(uint256)": {
-          "notice": "remove liquidity to the AMM"
-        },
-        "swapFromAToB(uint256)": {
-          "notice": "swap a given amount of TokenA against embedded amm"
-        },
-        "swapFromBToA(uint256)": {
-          "notice": "swap a given amount of TokenB against embedded amm"
-        },
-        "tokenA()": {
-          "notice": "tokens that can be traded in the AMM"
-        },
-        "tokenAReserves()": {
-          "notice": "get tokenA reserves"
-        },
-        "tokenBReserves()": {
-          "notice": "get tokenB reserves"
-        }
-      },
-      "version": 1
-    }
-  },
-  "settings": {
-    "compilationTarget": {
-      "AMM.sol": "AMM"
-    },
-    "evmVersion": "london",
-    "libraries": {},
-    "metadata": {
-      "bytecodeHash": "ipfs"
-    },
-    "optimizer": {
-      "enabled": false,
-      "runs": 200
-    },
-    "remappings": []
-  },
-  "sources": {
-    "AMM.sol": {
-      "keccak256": "0x69f4531d9db89628f5294b2f84bc61f37fd577612f49477ec1fe176c6176bf9f",
-      "license": "GPL-3.0-or-later",
-      "urls": [
-        "bzz-raw://dce3a79311b426b8b2b0c8bcb6675660c0734d77e1a4c8ab212aba2726a44efb",
-        "dweb:/ipfs/QmYVUZw3FA5JutwwRQ65As7fa2zGUHe99EZc49o7AiAd6o"
-      ]
-    },
-    "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol": {
-      "keccak256": "0x17b6b6189de509d602776fab3d0924c576ec365e53e712d16bdc57b1538edadb",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://7d8b3d9f1484e8ae7443a0a5e46f2faef362813f4fd6e0660d4b64725a16a990",
-        "dweb:/ipfs/QmQVeGDmxWy5A4PfKKpNrrEjFTgwygS7xCTtySSMC7R4M8"
-      ]
-    },
-    "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol": {
-      "keccak256": "0x5736fdfd3c69664af01fbf8734410bb4133672fe0abfafa39574c02d63227c6c",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://3d4c09d6c75c23a8e253ab3ab50c4243d21efc52acc808ae5b32d92c5032bba1",
-        "dweb:/ipfs/Qmf8FAHdTm3oK9G8zdFm8yMSUQ13hSaENTFpxfM34dPwKA"
-      ]
-    },
-    "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
-        "dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
-      ]
-    },
-    "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Context.sol": {
-      "keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
-      "license": "MIT",
-      "urls": [
-        "bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
-        "dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
-      ]
-    },
-    "https://github.com/paulrberg/prb-math/blob/main/contracts/PRBMath.sol": {
-      "keccak256": "0xed164c95012964f5e125b5d2b2d00471a4bdee4def618cd1fcf341d196011b61",
-      "license": "Unlicense",
-      "urls": [
-        "bzz-raw://3ba3ad78675323279adfc09038eaa14f4cde3f3173e5d2d60b9c30bf7099aa7b",
-        "dweb:/ipfs/QmV56KGJZQG681hwd7JQDv3KjAa9JSGF88ShGx8YBCuvcR"
-      ]
-    },
-    "https://github.com/paulrberg/prb-math/blob/main/contracts/PRBMathUD60x18.sol": {
-      "keccak256": "0x2180489de7680a79844dd5ef145f800e4f68e515e0e89409242f0187dbbd657b",
-      "license": "Unlicense",
-      "urls": [
-        "bzz-raw://d79ea95d887792ad6922f8bdcefc21bc2949b7438784f16276917160c3bdf5e1",
-        "dweb:/ipfs/QmQ24reyfKuvBzJaPpqnENYNHySu4r28Yx5kJXiNGyTrhv"
-      ]
-    }
-  },
-  "version": 1
+	"compiler": {
+		"version": "0.8.9+commit.e5eed63a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenB",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "PRBMathUD60x18__FromUintOverflow",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "PRBMathUD60x18__SqrtOverflow",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "prod1",
+						"type": "uint256"
+					}
+				],
+				"name": "PRBMath__MulDivFixedPointOverflow",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountA",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountB",
+						"type": "uint256"
+					}
+				],
+				"name": "InitialLiquidityProvided",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lpTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "LiquidityProvided",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lpTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "LiquidityRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountAIn",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountBOut",
+						"type": "uint256"
+					}
+				],
+				"name": "SwapAToB",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountBIn",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountAOut",
+						"type": "uint256"
+					}
+				],
+				"name": "SwapBToA",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "LP_FEE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subtractedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "decreaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "addedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountA",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountB",
+						"type": "uint256"
+					}
+				],
+				"name": "provideInitialLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "lpTokenAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "provideLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "lpTokenAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "removeLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountAIn",
+						"type": "uint256"
+					}
+				],
+				"name": "swapFromAToB",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountBIn",
+						"type": "uint256"
+					}
+				],
+				"name": "swapFromBToA",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenA",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenAReserves",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenB",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenBReserves",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"allowance(address,address)": {
+					"details": "See {IERC20-allowance}."
+				},
+				"approve(address,uint256)": {
+					"details": "See {IERC20-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address."
+				},
+				"balanceOf(address)": {
+					"details": "See {IERC20-balanceOf}."
+				},
+				"decimals()": {
+					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
+				},
+				"decreaseAllowance(address,uint256)": {
+					"details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
+				},
+				"increaseAllowance(address,uint256)": {
+					"details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
+				},
+				"name()": {
+					"details": "Returns the name of the token."
+				},
+				"provideLiquidity(uint256)": {
+					"params": {
+						"lpTokenAmount": "number of lp tokens to mint with new liquidity"
+					}
+				},
+				"removeLiquidity(uint256)": {
+					"params": {
+						"lpTokenAmount": "number of lp tokens to burn"
+					}
+				},
+				"symbol()": {
+					"details": "Returns the symbol of the token, usually a shorter version of the name."
+				},
+				"totalSupply()": {
+					"details": "See {IERC20-totalSupply}."
+				},
+				"transfer(address,uint256)": {
+					"details": "See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`."
+				},
+				"transferFrom(address,address,uint256)": {
+					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"errors": {
+				"PRBMathUD60x18__FromUintOverflow(uint256)": [
+					{
+						"notice": "Emitted when converting a basic integer to the fixed-point format format overflows UD60x18."
+					}
+				],
+				"PRBMathUD60x18__SqrtOverflow(uint256)": [
+					{
+						"notice": "Emitted when the calculating the square root overflows UD60x18."
+					}
+				],
+				"PRBMath__MulDivFixedPointOverflow(uint256)": [
+					{
+						"notice": "Emitted when the result overflows uint256."
+					}
+				]
+			},
+			"events": {
+				"InitialLiquidityProvided(address,uint256,uint256)": {
+					"notice": "An event emitted when initial liquidity is provided"
+				},
+				"LiquidityProvided(address,uint256)": {
+					"notice": "An event emitted when liquidity is provided"
+				},
+				"LiquidityRemoved(address,uint256)": {
+					"notice": "An event emitted when liquidity is removed"
+				},
+				"SwapAToB(address,uint256,uint256)": {
+					"notice": "An event emitted when a swap from tokenA to tokenB is performed"
+				},
+				"SwapBToA(address,uint256,uint256)": {
+					"notice": "An event emitted when a swap from tokenB to tokenA is performed"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"LP_FEE()": {
+					"notice": "fee for LP providers, 4 decimal places, i.e. 30 = 0.3%"
+				},
+				"provideInitialLiquidity(uint256,uint256)": {
+					"notice": "provide initial liquidity to the amm. This sets the relative price between tokens"
+				},
+				"provideLiquidity(uint256)": {
+					"notice": "provide liquidity to the AMM"
+				},
+				"removeLiquidity(uint256)": {
+					"notice": "remove liquidity to the AMM"
+				},
+				"swapFromAToB(uint256)": {
+					"notice": "swap a given amount of TokenA against embedded amm"
+				},
+				"swapFromBToA(uint256)": {
+					"notice": "swap a given amount of TokenB against embedded amm"
+				},
+				"tokenA()": {
+					"notice": "tokens that can be traded in the AMM"
+				},
+				"tokenAReserves()": {
+					"notice": "get tokenA reserves"
+				},
+				"tokenBReserves()": {
+					"notice": "get tokenB reserves"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contract/AMM.sol": "AMM"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contract/AMM.sol": {
+			"keccak256": "0x712e5ea20b7e1f608faf9fb81c33aa0bedca2ea96015834b69e03849989ccce1",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://6c0b82fadfe6addeb50677d0ad814f2f57ae63c59d66e51a18256ffde8abf95a",
+				"dweb:/ipfs/QmZwo1mcrp8VkESnAaRkuETA7J5HQ2Lha53tMd39GhStrY"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0x17b6b6189de509d602776fab3d0924c576ec365e53e712d16bdc57b1538edadb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7d8b3d9f1484e8ae7443a0a5e46f2faef362813f4fd6e0660d4b64725a16a990",
+				"dweb:/ipfs/QmQVeGDmxWy5A4PfKKpNrrEjFTgwygS7xCTtySSMC7R4M8"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x5736fdfd3c69664af01fbf8734410bb4133672fe0abfafa39574c02d63227c6c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3d4c09d6c75c23a8e253ab3ab50c4243d21efc52acc808ae5b32d92c5032bba1",
+				"dweb:/ipfs/Qmf8FAHdTm3oK9G8zdFm8yMSUQ13hSaENTFpxfM34dPwKA"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"https://github.com/paulrberg/prb-math/blob/main/contracts/PRBMath.sol": {
+			"keccak256": "0xed164c95012964f5e125b5d2b2d00471a4bdee4def618cd1fcf341d196011b61",
+			"license": "Unlicense",
+			"urls": [
+				"bzz-raw://3ba3ad78675323279adfc09038eaa14f4cde3f3173e5d2d60b9c30bf7099aa7b",
+				"dweb:/ipfs/QmV56KGJZQG681hwd7JQDv3KjAa9JSGF88ShGx8YBCuvcR"
+			]
+		},
+		"https://github.com/paulrberg/prb-math/blob/main/contracts/PRBMathUD60x18.sol": {
+			"keccak256": "0x2180489de7680a79844dd5ef145f800e4f68e515e0e89409242f0187dbbd657b",
+			"license": "Unlicense",
+			"urls": [
+				"bzz-raw://d79ea95d887792ad6922f8bdcefc21bc2949b7438784f16276917160c3bdf5e1",
+				"dweb:/ipfs/QmQ24reyfKuvBzJaPpqnENYNHySu4r28Yx5kJXiNGyTrhv"
+			]
+		}
+	},
+	"version": 1
 }
