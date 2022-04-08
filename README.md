@@ -1,6 +1,6 @@
 # Advanced Hardhat Smart Contract Sample Project
 
-This demonstrates an advanced Hardhat Smart Contract Sample Project, integrating other tools commonly used alongside Hardhat in the ecosystem. 
+This demonstrates an advanced Hardhat Smart Contract Sample Project, integrating other tools commonly used alongside Hardhat in the ecosystem.
 
 The project comes with some sample contracts, some tests for those contracts, some sample scripts that deploy those contracts, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
 

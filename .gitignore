@@ -4,15 +4,9 @@ coverage.json
 typechain
 .vscode
 
-#Hardhat files
-cache
-artifacts
-
 # environment
 .env
 
 .eslintcache
 
 .DS_Store
-
-contracts/artifacts
