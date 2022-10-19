@@ -7,6 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "prb-math/contracts/PRBMathSD59x18.sol";
 import "./OrderPool.sol";
 import "./BinarySearchTree.sol";
+import "hardhat/console.sol";
 
 ///@notice This library handles the state and execution of long term orders.
 library LongTermOrdersLib {
@@ -17,9 +18,6 @@ library LongTermOrdersLib {
 
     ///@notice fee for LP providers, 4 decimal places, i.e. 30 = 0.3%
     uint256 public constant LP_FEE = 30;
-
-    ///@notice precision for fixed-point signed integer number
-    int256 public constant PRECISION = 1e18;
 
     ///@notice information associated with a long term order
     struct Order {
@@ -379,7 +377,7 @@ library LongTermOrdersLib {
         uint256 tokenBIn
     )
         private
-        pure
+        view
         returns (
             uint256 tokenAOut,
             uint256 tokenBOut,
@@ -416,6 +414,8 @@ library LongTermOrdersLib {
             int256 c = computeC(aStart, bStart, aIn, bIn);
             int256 endA = computeAmmEndTokenA(aIn, bIn, c, k, aStart, bStart);
             int256 endB = aStart.div(endA).mul(bStart);
+            //int256 endB = aStart.mul(bStart).div(endA);
+            console.log("endB", uint256(endB.toInt()));
 
             int256 outA = aStart + aIn - endA;
             int256 outB = bStart + bIn - endB;
@@ -436,12 +436,21 @@ library LongTermOrdersLib {
         int256 tokenBStart,
         int256 tokenAIn,
         int256 tokenBIn
-    ) private pure returns (int256 c) {
+    ) private view returns (int256 c) {
         int256 c1 = tokenAStart.sqrt().mul(tokenBIn.sqrt());
+        console.log("c1", uint256(c1.toInt()));
+
         int256 c2 = tokenBStart.sqrt().mul(tokenAIn.sqrt());
+        console.log("c2", uint256(c2.toInt()));
+
         int256 cNumerator = c1 - c2;
+        console.log("cNumerator", uint256(cNumerator.toInt()));
+
         int256 cDenominator = c1 + c2;
-        c = cNumerator.mul(PRECISION.fromInt()).div(cDenominator);
+        console.log("cDenominator", uint256(cDenominator.toInt()));
+
+        c = cNumerator.div(cDenominator);
+        console.log("c", uint256(c.toInt()));
     }
 
     //helper function for TWAMM formula computation, helps avoid stack depth errors
@@ -452,20 +461,28 @@ library LongTermOrdersLib {
         int256 k,
         int256 aStart,
         int256 bStart
-    ) private pure returns (int256 ammEndTokenA) {
+    ) private view returns (int256 ammEndTokenA) {
         //rearranged for numerical stability
         int256 eNumerator = PRBMathSD59x18.fromInt(4).mul(tokenAIn).sqrt().mul(
             tokenBIn.sqrt()
         );
-        int256 eDenominator = aStart.sqrt().mul(bStart.sqrt());
-        int256 exponent = eNumerator.div(eDenominator).exp().mul(
-            PRECISION.fromInt()
-        );
+        console.log("eNumerator", uint256(eNumerator.toInt()));
+
+        int256 eDenominator = aStart.sqrt().mul(bStart.sqrt()).inv();
+        console.log("eDenominator", uint256(eDenominator.toInt()));
+
+        int256 exponent = eNumerator.mul(eDenominator).exp();
         require(exponent > PRBMathSD59x18.abs(c), "Invalid Amount");
-        int256 fraction = (exponent + c).mul(PRECISION.fromInt()).div(
-            exponent - c
-        );
+        console.log("exponent", uint256(exponent.toInt()));
+
+        int256 fraction = (exponent + c).div(exponent - c);
+        console.log("fraction", uint256(fraction.toInt()));
+
         int256 scaling = k.div(tokenBIn).sqrt().mul(tokenAIn.sqrt());
-        ammEndTokenA = fraction.mul(scaling).div(PRECISION.fromInt());
+        //int256 scaling = k.mul(tokenAIn).sqrt().div(tokenBIn.sqrt());
+        console.log("scaling", uint256(scaling.toInt()));
+
+        ammEndTokenA = fraction.mul(scaling);
+        console.log("ammEndTokenA", uint256(ammEndTokenA.toInt()));
     }
 }
