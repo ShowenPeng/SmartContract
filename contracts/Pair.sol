@@ -107,7 +107,7 @@ contract Pair is IPair, ERC20, ReentrancyGuard {
             }
         } else if (kLast != 0) {
             console.log("kLast", kLast);
-            kLast = 0;  
+            kLast = 0;
         }
     }
 

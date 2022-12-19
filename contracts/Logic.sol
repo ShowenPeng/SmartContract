@@ -20,11 +20,11 @@ contract Logic is Initializable, OwnableUpgradeable {
         emit logicSetted(_key, _value);
     }
 
-    function GetLogic(string memory _key) public view returns (uint256){
+    function GetLogic(string memory _key) public view returns (uint256) {
         return logic[_key];
     }
-    
-    function GetInitializeData() public pure returns(bytes memory){
+
+    function GetInitializeData() public pure returns (bytes memory) {
         return abi.encodeWithSignature("initialize()");
     }
 }

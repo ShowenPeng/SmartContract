@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-pragma solidity ^0.8.9; 
-contract Backup {
+pragma solidity ^0.8.9;
 
-function getOrderProceeds(uint256 orderId)
+contract Backup {
+    function getOrderProceeds(uint256 orderId)
         external
         view
         returns (uint256 withdrawableProceeds);
 
-///@notice returns the user order withdrawable proceeds
+    ///@notice returns the user order withdrawable proceeds
     function getOrderProceeds(uint256 orderId)
         external
         view
@@ -52,8 +52,7 @@ function getOrderProceeds(uint256 orderId)
             uint256 orderPoolBRewardFactorAtBlock
         );
 
-
-///@notice returns reward factor at a specific block
+    ///@notice returns reward factor at a specific block
     function getTWAMMRewardFactorAtBlock(uint256 blockNumber)
         external
         view
@@ -63,11 +62,11 @@ function getOrderProceeds(uint256 orderId)
             uint256 orderPoolBRewardFactorAtBlock
         )
     {
-        orderPoolARewardFactorAtBlock= longTermOrders
+        orderPoolARewardFactorAtBlock = longTermOrders
             .OrderPoolMap[tokenA]
             .rewardFactorAtBlock[blockNumber];
 
-        orderPoolBRewardFactorAtBlock= longTermOrders
+        orderPoolBRewardFactorAtBlock = longTermOrders
             .OrderPoolMap[tokenB]
             .rewardFactorAtBlock[blockNumber];
     }

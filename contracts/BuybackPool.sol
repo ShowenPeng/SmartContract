@@ -137,13 +137,10 @@ contract BuybackPool is Ownable, AnalyticMath {
         }
         require(amountIn > 0, "buying amount is 0");
 
-        address pairAddr = ITWAMM(twamm).obtainPairAddress(
-            usdc,
-            banana
-        );
+        address pairAddr = ITWAMM(twamm).obtainPairAddress(usdc, banana);
 
         IERC20(usdc).approve(pairAddr, amountIn);
-        
+
         lastOrderId = swap.longTermSwapTokenToToken(
             usdc,
             banana,
